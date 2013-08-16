@@ -4,6 +4,6 @@ Tips for installing CRDN
 	
 2) Clone this project into ~/Spotify (or the windows equivalent)
 
-3) In the Spotify search bar, enter `spotify:app:crdn` (sans tick mark)
+3) In the Spotify search bar, enter `spotify:app:crdn`
 
 4) Enjoy!
