@@ -1,0 +1,68 @@
+#head {
+	width:100%;
+	background: #000;
+}
+body {
+}
+
+#headimg {
+	width:100%;
+}
+.sp-image-img {
+	height:300px;
+	width:300px;
+	background-size:100%;
+}
+.sp-image {
+	margin:auto auto;
+	padding: 20px 20px;
+	background:#000;
+	display:block;
+	height:300px;
+	width:300px;
+}
+#nowplaying {
+	margin: 20px 20px;
+}
+#song, #artist {
+	font-weight: bold;
+}
+#info {
+	width: 100%;
+}
+#infotext {
+	text-align: center;
+	font-size: 26px;
+}
+#playsong {
+	font-size: 26px;
+	height:40px;
+	margin: auto auto;
+	display: block;
+	padding: 10px 10px;
+	width:300px;
+}
+#but {
+	width: 100%;
+	margin: 20px 0px;
+}
+#morefo {
+	font-size: 18px;
+	margin: 20px 20px;
+}
+#nobio {
+	text-align: center;
+	width: 100%;
+}
+#next {
+	margin: 20px 20px;
+	width: 100%;
+	text-align:center;
+	font-size: 18px;
+}
+#upnext {
+	margin: auto auto;
+}
+.artist {
+	font-weight: bold;
+}
