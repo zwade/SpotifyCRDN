@@ -98,6 +98,7 @@ function playSong(isButton) {
 		songT = nowPlaying()
 		songI = getSong(songT)
 	}
+	console.log(songT)
 	//console.log(songI.tracks[0])
 	var song;
 	var album;
@@ -142,10 +143,12 @@ require(['$api/models', '$views/image#Image', '$views/list#List'], function(mode
 	list = List
 	models.player.addEventListener('change', function(arg) {
 		
-		if (arg.data.track==null) {
+		if (arg.data.track==null || (arg.data.position==0 && !arg.data.isPlaying)) {
 			console.log('here')
 			playSong(false)
 			//console.log(arg)
+		} else {
+			console.log("HUH")
 		}
 		console.log(arg)
 		//console.log(arg.target.position, arg.target.duration) 
