@@ -34,7 +34,7 @@ function playSong2() {
 	songT = nowPlaying()
 	songI = getSong(songT)
 	//console.log(songI.tracks[0])
-	api.player.playTrack(api.Track.fromURI(songI.tracks[0].href));
+	//api.player.playTrack(api.Track.fromURI(songI.tracks[0].href));
 }	
 function lookup(uri) {
 	xhr = new XMLHttpRequest()
@@ -141,9 +141,11 @@ require(['$api/models', '$views/image#Image', '$views/list#List'], function(mode
 	api = models
 	img = Image
 	list = List
-	models.player.addEventListener('change', function(arg) {
-		
-		if (arg.data.track==null || (arg.data.position==0 && !arg.data.isPlaying)) {
+	models.player.addEventListener('change:track', function(arg) {
+		console.log(arg);
+
+		//if (arg.data.track==null || (arg.data.position==0 && !arg.data.isPlaying)) {
+		if (songI.tracks[0].href == arg.oldValue.uri) {
 			console.log('here')
 			playSong(false)
 			//console.log(arg)

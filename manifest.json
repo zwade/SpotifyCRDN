@@ -17,6 +17,10 @@
         "views": "1.18.1"
     },
     "SupportedDeviceClasses": ["Desktop"],
-    "VendorIdentifier": "Moi"
+    "VendorIdentifier": "Moi",
+    "RequiredPermissions": [
+        "http://listen.christianrock.net",
+        "http://christianrock.net"
+    ]
 
 }
