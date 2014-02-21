@@ -115,6 +115,7 @@ function playSong(isButton) {
 		song = backups[Math.round(Math.random()*(backups.length-1))];
 		api.player.playTrack(api.Track.fromURI(song));
 		lu = lookup(song)
+		songI = getSong(lu.track.name)
 		album = lu.track.album.href
 		$("#info").html("<div id='infotext'>Unfortunately, Spotify is unable to play the song: <span id='oldsong'>"+songT.split(" - ")[1]+"</span>. Hopefully, you will enjoy <span id='song'>"+lu.track.name+"</span> by <span id='artist'>"+lu.track.artists[0].name+"</span></div>")  
 	}		
@@ -142,8 +143,9 @@ require(['$api/models', '$views/image#Image', '$views/list#List'], function(mode
 	img = Image
 	list = List
 	models.player.addEventListener('change:track', function(arg) {
-		console.log(arg);
 
+		console.log(arg.oldValue.uri);
+		console.log(songI.tracks[0].href);
 		//if (arg.data.track==null || (arg.data.position==0 && !arg.data.isPlaying)) {
 		if (songI.tracks[0].href == arg.oldValue.uri) {
 			console.log('here')
