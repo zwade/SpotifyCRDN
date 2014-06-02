@@ -71,9 +71,10 @@ function playAlbum() {
 	try {
 		song = songI.tracks[0].href
 		album = songI.tracks[0].album.href
+		console.log(songI);
 		var tmp = songT.split(" - ")
 		$("#info").html("<div id='infotext'>Now playing: <span id='song'>"+tmp[1]+"</span> by: <span id='artist'>"+tmp[0]+"</span></div>")
-		console.log("test: ",songI)
+		//console.log("test: ",songI)
 	} catch (e) {
 		song = backups[Math.round(Math.random()*(backups.length-1))];
 		album = song
@@ -89,23 +90,23 @@ function playSong(isButton) {
 		if (api.player.playing && isButton) {
 			api.player.pause()
 			sPlay = false;
-			console.log("pausing")
+			//console.log("pausing")
 			return
 		}
 		songT = nowPlaying()
 		songI = getSong(songT)
 		if (songI.tracks[0].href == api.player.track.uri && isButton) {
 			api.player.play()
-			console.log("playing")
+			//console.log("playing")
 			return
 		}
 	} catch(e) {
-		console.log(e)
+		//console.log(e)
 		songT = nowPlaying()
 		songI = getSong(songT)
 	}
-	console.log(songT)
-	//console.log(songI.tracks[0])
+	//console.log(songT)
+	////console.log(songI.tracks[0])
 	var song;
 	var album;
 	try {
@@ -113,11 +114,11 @@ function playSong(isButton) {
 		album = songI.tracks[0].album.href
 		var tmp = songT.split(" - ")
 		$("#info").html("<div id='infotext'>Now playing: <span id='song'>"+tmp[1]+"</span> by: <span id='artist'>"+tmp[0]+"</span></div>")
-		console.log("test: ",songI)
+		//console.log("test: ",songI)
 		api.player.playTrack(api.Track.fromURI(song));
 		lu = lookup(song)
 	} catch (e) {
-		console.log(api.player)
+		//console.log(api.player)
 		song = backups[Math.round(Math.random()*(backups.length-1))];
 		api.player.playTrack(api.Track.fromURI(song));
 		lu = lookup(song)
@@ -132,7 +133,7 @@ function playSong(isButton) {
 	$("#nowplaying").html(image.node)
 	var tmp = api.Artist.fromURI(lu.track.artists[0].href).load('biography').done(function(old) {
 		ab = old
-		console.log(old.biography)
+		//console.log(old.biography)
 		if (old.biography) {
 			$("#morefo").html("<div id='bio'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+old.biography+"</div>")
 		} else {
@@ -153,17 +154,17 @@ require(['$api/models', '$views/image#Image', '$views/list#List'], function(mode
 		if (!sPlay) {
 			return;
 		}
-		console.log(arg.oldValue.uri);
-		console.log(songI.tracks[0].href);
+		//console.log(arg.oldValue.uri);
+		//console.log(songI.tracks[0].href);
 		//if (arg.data.track==null || (arg.data.position==0 && !arg.data.isPlaying)) {
 		if (songI.tracks[0].href == arg.oldValue.uri) {
-			console.log('here')
+			//console.log('here')
 			playSong(false)
 			//console.log(arg)
 		} else {
-			console.log("HUH")
+			//console.log("HUH")
 		}
-		console.log(arg)
+		//console.log(arg)
 		//console.log(arg.target.position, arg.target.duration) 
 	
 	});
