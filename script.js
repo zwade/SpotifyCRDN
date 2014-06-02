@@ -1,7 +1,11 @@
 //sp = getSpotifyApi(1);
 
 //exports.init = init;
+
+sPlay = true;
+
 var api;
+
 var backups = [
 "spotify:track:3SP1LUtLle97QNFvFFopnG",
 "spotify:track:2m2FrjkQrHxEfFxHujRqVo",
@@ -81,8 +85,10 @@ function playAlbum() {
 }	
 function playSong(isButton) {
 	try {
+		sPlay = true;
 		if (api.player.playing && isButton) {
 			api.player.pause()
+			sPlay = false;
 			console.log("pausing")
 			return
 		}
@@ -144,6 +150,9 @@ require(['$api/models', '$views/image#Image', '$views/list#List'], function(mode
 	list = List
 	models.player.addEventListener('change:track', function(arg) {
 
+		if (!sPlay) {
+			return;
+		}
 		console.log(arg.oldValue.uri);
 		console.log(songI.tracks[0].href);
 		//if (arg.data.track==null || (arg.data.position==0 && !arg.data.isPlaying)) {
